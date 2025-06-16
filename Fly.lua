@@ -17,13 +17,13 @@ screenGui.Parent = player:WaitForChild("PlayerGui")
 local closeButton = Instance.new("TextButton")
 closeButton.Size = UDim2.new(0, 100, 0, 40)
 closeButton.Position = UDim2.new(0.95, -110, 0.95, -50) -- vpravo dole
-closeButton.Text = "Close"
+closeButton.Text = "Stop"
 closeButton.Parent = screenGui
 
 local statusLabel = Instance.new("TextLabel")
 statusLabel.Size = UDim2.new(0, 200, 0, 30)
 statusLabel.Position = UDim2.new(0.5, -100, 0.9, 0)
-statusLabel.Text = "Létání zapnuto"
+statusLabel.Text = "Fly on"
 statusLabel.TextColor3 = Color3.new(0, 1, 0)
 statusLabel.BackgroundTransparency = 1
 statusLabel.Parent = screenGui
@@ -93,7 +93,7 @@ local function startFlying()
     end
 
     flyConnection = RunService.RenderStepped:Connect(flyUpdate)
-    print("Létání zapnuto")
+    print("Fly on")
 end
 
 local function stopFlying()
@@ -114,7 +114,7 @@ local function stopFlying()
         flyConnection:Disconnect()
         flyConnection = nil
     end
-    print("Létání vypnuto")
+    print("Fly off")
 end
 
 closeButton.MouseButton1Click:Connect(function()
